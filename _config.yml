@@ -1,0 +1,78 @@
+# _config.yml
+title: "Katie Bucks the Invisible FUCKS!"
+description: "Personal VLOG/BLOG — privacy-first, Tor-friendly, no tracking."
+url: ""          # set before deploy, e.g., "https://katiebucks.xyz"
+baseurl: ""      # keep empty for root
+timezone: "America/Chicago"
+
+# Blog & permalinks
+permalink: /:categories/:year/:month/:day/:title/
+paginate: 6
+paginate_path: "page:num"
+
+# Plugins supported by GitHub Pages
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+
+# Site owner & mirrors
+owner:
+  name: "Katie Bucks"
+  email: "contact@katiebucks.xyz"
+
+onion_url: "http://katiebucksonion123.onion/"   # dummy onion link per plan
+
+# THEME CONTROLS (no JS toggles; configure here)
+# theme_variant: "default" (uses main.css) or "night" (layers night.css)
+theme_variant: "night"  # options: default | night
+# light_mode_enabled: true sets a light stylesheet and uses a light body class
+light_mode_enabled: false
+
+# Banners
+banner_image: "/assets/images/banner.jpg"
+banner_image_night: "/assets/images/banner_ghosty.png"
+
+# Fixed navbar items — must be exactly these five
+nav:
+  - title: "Home"
+    url: "/"
+  - title: "Privacy Guide"
+    url: "/privacy/"
+  - title: "Contact"
+    url: "/contact/"
+  - title: "Mirrors"
+    url: "/mirrors/"
+  - title: "PGP"
+    url: "/pgp/"
+
+# CSS paths (kept explicit for auditing)
+css:
+  main: "/assets/css/main.css"
+  night: "/assets/css/night.css"
+  light: "/assets/css/light.css"
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Katie Bucks"
+      categories: ["blog"]
+      tags: []
+  - scope:
+      path: "_pages"
+      type: "pages"
+    values:
+      layout: "page"
+
+# Exclusions
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# Strictly no analytics or external fonts — keep everything self-hosted.

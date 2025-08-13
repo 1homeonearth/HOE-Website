@@ -1,0 +1,13 @@
+<!-- _includes/navbar.html -->
+<nav class="navbar" aria-label="Primary">
+  <div class="nav-inner">
+    <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    <ul class="nav-links" role="list">
+      {% for item in site.nav %}
+        <li class="nav-item">
+          <a class="nav-link{% if item.url == page.url %} is-active{% endif %}" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</nav>

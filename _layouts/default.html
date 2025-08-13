@@ -1,0 +1,42 @@
+<!-- _layouts/default.html -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | strip_newlines }}">
+    <!-- Strict Content Security Policy (per plan) -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-ancestors 'none'; base-uri 'none';">
+    <meta name="referrer" content="no-referrer">
+
+    <!-- System fonts only (privacy-first) -->
+    <style>@font-face{font-family:system-ui;src:local("system-ui")}</style>
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
+
+    <!-- Base CSS -->
+    <link rel="stylesheet" href="{{ site.css.main | default: '/assets/css/main.css' | relative_url }}">
+    {% if site.theme_variant == 'night' %}
+      <!-- Night theme: layered atop base -->
+      <link rel="stylesheet" href="{{ site.css.night | default: '/assets/css/night.css' | relative_url }}">
+    {% endif %}
+
+    {% if site.light_mode_enabled %}
+      <!-- Light theme (optional; disabled by default via config) -->
+      <link rel="stylesheet" href="{{ site.css.light | default: '/assets/css/light.css' | relative_url }}">
+    {% endif %}
+  </head>
+  <body class="{% if site.light_mode_enabled %}theme-light{% else %}theme-dark{% endif %}">
+    {% include navbar.html %}
+    {% include onion_notice.html %}
+    {% include banner.html %}
+
+    <main id="content" tabindex="-1">
+      {{ content }}
+    </main>
+
+    {% include footer.html %}
+  </body>
+</html>

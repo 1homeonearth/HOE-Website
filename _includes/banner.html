@@ -1,0 +1,18 @@
+<!-- _includes/banner.html -->
+{% comment %}
+  Determine banner image with optional per-page override.
+  - page.banner takes precedence
+  - night theme uses site.banner_image_night if available
+  - fallback to site.banner_image or default banner.jpg
+{% endcomment %}
+{% assign banner_src = page.banner %}
+{% unless banner_src %}
+  {% if site.theme_variant == 'night' and site.banner_image_night %}
+    {% assign banner_src = site.banner_image_night %}
+  {% else %}
+    {% assign banner_src = site.banner_image | default: '/assets/images/banner.jpg' %}
+  {% endif %}
+{% endunless %}
+<header class="banner">
+  <img src="{{ banner_src | relative_url }}" alt="Site banner" class="banner-img">
+</header>

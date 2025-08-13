@@ -1,0 +1,69 @@
+/* assets/css/light.css */
+/* Light theme scaffold (opt-in via _config.yml: light_mode_enabled: true)
+   Namespaced to .theme-light so it won't affect dark mode unless enabled. */
+
+.theme-light {
+  --bg: #f7f9fc;
+  --fg: #0c1220;
+  --muted: #4a5568;
+  --baby-blue: #2b8fff;
+  --hot-pink: #d9268b;
+  --card: #ffffff;
+  --border: #d8e0ea;
+
+  --radius: 16px;
+  --shadow-glow: 0 0 20px rgba(217, 38, 139, 0.25);
+  --shadow-soft: 0 6px 22px rgba(17, 24, 39, 0.12);
+}
+
+/* Body & text */
+.theme-light {
+  background: var(--bg);
+  color: var(--fg);
+}
+
+/* Navbar light */
+.theme-light .navbar {
+  background: rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid var(--border);
+}
+.theme-light .brand { color: var(--fg); }
+.theme-light .nav-link {
+  color: var(--fg);
+  border-color: var(--border);
+  background: linear-gradient(135deg, rgba(43,143,255,0.08), rgba(217,38,139,0.08));
+}
+
+/* Onion bar */
+.theme-light .onion-bar {
+  background: linear-gradient(90deg, rgba(43,143,255,0.10), rgba(217,38,139,0.10));
+  border-bottom: 1px solid var(--border);
+}
+.theme-light .onion-link { color: var(--fg); }
+
+/* Banner */
+.theme-light .banner { background: #f3f6fb; }
+.theme-light .banner-img { filter: none; }
+
+/* Cards */
+.theme-light .card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Links & prose */
+.theme-light .prose a { color: #1457cc; }
+
+/* Buttons */
+.theme-light .btn {
+  color: var(--fg);
+  border: 1px solid var(--border);
+  background-image: linear-gradient(135deg, rgba(43,143,255,0.14), rgba(217,38,139,0.14));
+}
+
+/* Footer */
+.theme-light .site-footer {
+  border-top: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(43,143,255,0.06), rgba(217,38,139,0.04));
+}
