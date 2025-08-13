@@ -1,0 +1,59 @@
+/* assets/css/night.css */
+/* Night-owl variant — stronger hot-pink glow, deeper backdrop
+   This file overlays on top of main.css. No JS required. */
+
+:root {
+  /* Slightly darker canvas + richer card for depth */
+  --bg: #06090f;         /* deeper than main */
+  --card: #0e1422;       /* cooler/inkier card */
+  --border: #1f2a3b;
+
+  /* Emphasize the brand colors */
+  --baby-blue: #86d2ff;  /* a hair brighter */
+  --hot-pink: #ff3ea8;   /* a hair hotter */
+
+  /* Beefy glow: twin halo (pink primary, blue secondary) */
+  --shadow-glow:
+    0 0 44px rgba(255, 62, 168, 0.55),
+    0 0 12px rgba(134, 210, 255, 0.28);
+
+  /* Muted text pulls a touch cooler for night */
+  --muted: #9fb0c8;
+}
+
+/* Elevate nav/brand glow at night */
+.brand { box-shadow: var(--shadow-glow); }
+
+/* Accentuate interactive elements */
+.nav-link:is(:hover, :focus),
+.btn:is(:hover, :focus) {
+  box-shadow: var(--shadow-glow);
+}
+
+/* Banner: add a soft edge vignette for cinematic feel (no images, pure CSS) */
+.banner {
+  background:
+    radial-gradient(120% 70% at 50% 0%,
+      rgba(255, 62, 168, 0.09) 0%,
+      rgba(134, 210, 255, 0.05) 35%,
+      rgba(0,0,0,0) 70%) #0a0f19;
+}
+
+/* Cards lift slightly on hover for tactile feedback (still CSS-only) */
+.card:hover {
+  transform: translateY(-2px);
+  transition: transform 120ms ease-in-out;
+  box-shadow:
+    0 8px 28px rgba(0,0,0,0.35),
+    0 0 26px rgba(255, 62, 168, 0.25);
+}
+
+/* Footer subtle gradient tint */
+.site-footer {
+  background: linear-gradient(180deg, rgba(255,62,168,0.06), rgba(134,210,255,0.04));
+}
+
+/* Respect prefers-reduced-motion: keep hover lift minimal */
+@media (prefers-reduced-motion: reduce) {
+  .card:hover { transform: none; }
+}

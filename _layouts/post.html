@@ -1,0 +1,20 @@
+<!-- _layouts/post.html -->
+---
+layout: default
+---
+<section class="wrap">
+  <article class="prose card card--padded">
+    <header class="post-header">
+      <h1 class="page-title">{{ page.title }}</h1>
+      <p class="card-meta">{{ page.date | date: "%Y-%m-%d" }}</p>
+      {% if page.tags and page.tags.size > 0 %}
+        <p class="tags">Tags:
+          {% for t in page.tags %}
+            <span class="tag">{{ t }}</span>{% unless forloop.last %} {% endunless %}
+          {% endfor %}
+        </p>
+      {% endif %}
+    </header>
+    {{ content }}
+  </article>
+</section>

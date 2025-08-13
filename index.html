@@ -1,0 +1,37 @@
+---
+layout: default
+title: Home
+---
+
+<section class="wrap">
+  <h1 class="page-title">Latest Posts</h1>
+
+  {% if paginator.posts and paginator.posts.size > 0 %}
+    <div class="card-grid">
+      {% for post in paginator.posts %}
+      <article class="card">
+        <h2 class="card-title">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h2>
+        <p class="card-meta">{{ post.date | date: "%Y-%m-%d" }}</p>
+        {% if post.excerpt %}
+          <p class="card-excerpt">{{ post.excerpt | strip_html | truncate: 180 }}</p>
+        {% endif %}
+        <a class="btn" href="{{ post.url | relative_url }}">Read</a>
+      </article>
+      {% endfor %}
+    </div>
+
+    <nav class="pagination" aria-label="Pagination">
+      {% if paginator.previous_page %}
+        <a class="btn" href="{{ paginator.previous_page_path | relative_url }}">&larr; Newer</a>
+      {% endif %}
+      <span class="page-count">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+      {% if paginator.next_page %}
+        <a class="btn" href="{{ paginator.next_page_path | relative_url }}">Older &rarr;</a>
+      {% endif %}
+    </nav>
+  {% else %}
+    <p>No posts yet. Check back soon.</p>
+  {% endif %}
+</section>
